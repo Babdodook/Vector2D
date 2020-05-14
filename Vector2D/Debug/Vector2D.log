@@ -1,5 +1,2 @@
-﻿  Vector2D.cpp
-C:\Users\dol42\OneDrive\Desktop\Vector2D\Vector2D\Vector2D.cpp(38,24): warning C4244: 'return': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  main.cpp
-  코드를 생성하고 있습니다...
-  Vector2D.vcxproj -> C:\Users\dol42\OneDrive\Desktop\Vector2D\Debug\Vector2D.exe
+﻿  main.cpp
+  Vector2D.vcxproj -> C:\잡다한것들\GitHub\Vector2D\Debug\Vector2D.exe

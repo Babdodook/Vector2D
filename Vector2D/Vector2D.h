@@ -1,4 +1,5 @@
 #pragma once
+#include"Vector3D.h"
 
 class Vector2D {
 public:
@@ -15,11 +16,12 @@ public:
 	float Angle();
 	Vector2D Normalize();	// 정규화
 
-	//Vector2D& operator=(const Vector2D& rhs);
+	Vector2D& operator=(const Vector2D& rhs);
 	Vector2D* operator+(const Vector2D* other);
 	Vector2D operator-(const Vector2D& rhs);
-	float operator*(const Vector2D& rhs);
-	Vector2D* CrossProduct(const Vector2D&);
 
-	friend Vector2D* operator+(const Vector2D&, const Vector2D&);
+	void Sum(const Vector2D*);
+	void Sub(const Vector2D*);
+	float InnerProduct(const Vector2D*);		// 내적
+	Vector3D* CrossProduct(const Vector2D*);	// 외적
 };

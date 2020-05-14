@@ -49,17 +49,17 @@ Vector2D Vector2D::Normalize()
 	return nomalizedVector;
 }
 
-//Vector2D& Vector2D::operator=(const Vector2D& rhs)
-//{
-//	if (this == &rhs)
-//		return *this;
-//
-//	this->x = 0;
-//	this->y = 0;
-//	this->angle = rhs.angle;
-//
-//	return *this;
-//}
+Vector2D& Vector2D::operator=(const Vector2D& rhs)
+{
+	if (this == &rhs)
+		return *this;
+
+	this->x = 0;
+	this->y = 0;
+	this->angle = rhs.angle;
+
+	return *this;
+}
 
 Vector2D* Vector2D::operator+(const Vector2D* other)
 {
@@ -75,18 +75,28 @@ Vector2D Vector2D::operator-(const Vector2D& rhs)
 	return *this;
 }
 
-float Vector2D::operator*(const Vector2D& rhs)
+void Vector2D::Sum(const Vector2D* other)
 {
-	return (this->x * rhs.x) + (this->y * rhs.y);
+	this->x += other->x;
+	this->y += other->y;
 }
 
-Vector2D* Vector2D::CrossProduct(const Vector2D& other)
+void Vector2D::Sub(const Vector2D* other)
 {
+	this->x -= other->x;
+	this->y -= other->y;
 }
 
-Vector2D* operator+(const Vector2D& left, const Vector2D& right)
+float Vector2D::InnerProduct(const Vector2D* other)
 {
-	Vector2D* newVector = new Vector2D(left.x + right.x, left.y + right.y);
+	return (this->x * other->x) + (this->y * other->y);
+}
 
-	return newVector;
+Vector3D* Vector2D::CrossProduct(const Vector2D* other)
+{
+	Vector3D* normalVec = new Vector3D();
+	normalVec->x = 0;
+	normalVec->y = 0;
+	normalVec->z = (this->x * other->y) - (this->y * other->x);
+	return normalVec;
 }
